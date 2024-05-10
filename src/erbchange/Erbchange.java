@@ -4,6 +4,8 @@
  */
 package erbchange;
 
+import view.login_window;
+
 /**
  *
  * @author rgara
@@ -14,7 +16,8 @@ public class Erbchange {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        login_window lw = new login_window();
+        lw.setVisible(true);
     }
     
 }
