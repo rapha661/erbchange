@@ -12,7 +12,7 @@ public class Investidor {
     public Investidor(){
     }
     
-    public Investidor(String nome, String cpf, String senha, int carteira){
+    public Investidor(String nome, String cpf, String senha, Integer carteira){
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;

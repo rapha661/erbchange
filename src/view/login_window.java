@@ -4,6 +4,12 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JTextField;
+
 /**
  *
  * @author rgara
@@ -17,6 +23,72 @@ public class login_window extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JTextField getInsert_senha_login() {
+        return insert_senha_login;
+    }
+
+    public void setInsert_senha_login(JTextField insert_senha_login) {
+        this.insert_senha_login = insert_senha_login;
+    }
+
+    public JTextField getInsert_cpf_login() {
+        return insert_cpf_login;
+    }
+
+    public void setInsert_cpf_login(JTextField insert_usuario_login) {
+        this.insert_cpf_login = insert_usuario_login;
+    }
+
+    public JButton getjButton1() {
+        return btEntrar;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.btEntrar = jButton1;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JLabel getLblLogin() {
+        return lblLogin;
+    }
+
+    public void setLblLogin(JLabel lblLogin) {
+        this.lblLogin = lblLogin;
+    }
+
+    public JLabel getLblSenha() {
+        return lblSenha;
+    }
+
+    public void setLblSenha(JLabel lblSenha) {
+        this.lblSenha = lblSenha;
+    }
+
+    public JLabel getLblUsuario() {
+        return lblCpf;
+    }
+
+    public void setLblUsuario(JLabel lblUsuario) {
+        this.lblCpf = lblUsuario;
+    }
+
+    public JMenu getMenuCriarUsuario() {
+        return menuCriarUsuario;
+    }
+
+    public void setMenuCriarUsuario(JMenu menuCriarUsuario) {
+        this.menuCriarUsuario = menuCriarUsuario;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,11 +99,11 @@ public class login_window extends javax.swing.JFrame {
     private void initComponents() {
 
         lblLogin = new javax.swing.JLabel();
-        lblUsuario = new javax.swing.JLabel();
+        lblCpf = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
-        insert_usuario_login = new javax.swing.JTextField();
+        insert_cpf_login = new javax.swing.JTextField();
         insert_senha_login = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btEntrar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuCriarUsuario = new javax.swing.JMenu();
 
@@ -40,14 +112,20 @@ public class login_window extends javax.swing.JFrame {
         lblLogin.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         lblLogin.setText("Bem vindo ao Erbchange");
 
-        lblUsuario.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        lblUsuario.setText("Usuário:");
+        lblCpf.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblCpf.setText("Usuário:");
 
         lblSenha.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         lblSenha.setText("Senha:");
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jButton1.setText("Entrar");
+        insert_cpf_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insert_cpf_loginActionPerformed(evt);
+            }
+        });
+
+        btEntrar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btEntrar.setText("Entrar");
 
         menuCriarUsuario.setText("Criar novo usuário");
         menuCriarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -71,16 +149,16 @@ public class login_window extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsuario)
+                            .addComponent(lblCpf)
                             .addComponent(lblSenha))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(insert_senha_login, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(insert_usuario_login, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(insert_cpf_login, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 184, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(184, 184, 184))
         );
         layout.setVerticalGroup(
@@ -90,14 +168,14 @@ public class login_window extends javax.swing.JFrame {
                 .addComponent(lblLogin)
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsuario)
-                    .addComponent(insert_usuario_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCpf)
+                    .addComponent(insert_cpf_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSenha)
                     .addComponent(insert_senha_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btEntrar)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -107,6 +185,10 @@ public class login_window extends javax.swing.JFrame {
     private void menuCriarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCriarUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuCriarUsuarioActionPerformed
+
+    private void insert_cpf_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insert_cpf_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_insert_cpf_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,13 +226,14 @@ public class login_window extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btEntrar;
+    private javax.swing.JTextField insert_cpf_login;
     private javax.swing.JTextField insert_senha_login;
-    private javax.swing.JTextField insert_usuario_login;
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblSenha;
-    private javax.swing.JLabel lblUsuario;
     private javax.swing.JMenu menuCriarUsuario;
     // End of variables declaration//GEN-END:variables
+
 }
