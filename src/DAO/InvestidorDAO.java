@@ -4,9 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import model.Investidor;
 import java.sql.ResultSet;
-import java.util.loggin;
-import java.util.loggingLoger;
-
 
 
 
@@ -18,7 +15,7 @@ public class InvestidorDAO {
     }
     
     public void inserir(Investidor investidor) throws SQLException{
-        String sql = "inset into investidor (nome, cpf, senha) values" + "('"+ investidor.getNome()+"','"+investidor.getcpf()+"','"+investidor.getSenha()+"')";
+        String sql = "inset into investidor (nome, cpf, senha) values" + "('"+ investidor.getNome()+"','"+investidor.getCpf()+"','"+investidor.getSenha()+"')";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.execute();
         conn.close();

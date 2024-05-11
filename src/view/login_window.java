@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.Controller_login;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -21,6 +22,7 @@ public class login_window extends javax.swing.JFrame {
      */
     public login_window() {
         initComponents();
+        this.controller = new Controller_login(this);
     }
 
     public JTextField getInsert_senha_login() {
@@ -126,6 +128,11 @@ public class login_window extends javax.swing.JFrame {
 
         btEntrar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btEntrar.setText("Entrar");
+        btEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEntrarActionPerformed(evt);
+            }
+        });
 
         menuCriarUsuario.setText("Criar novo usuário");
         menuCriarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -190,6 +197,10 @@ public class login_window extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_insert_cpf_loginActionPerformed
 
+    private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
+        controller.Login_investidor();
+    }//GEN-LAST:event_btEntrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -224,7 +235,8 @@ public class login_window extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+    
+    private Controller_login controller; 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEntrar;
     private javax.swing.JTextField insert_cpf_login;

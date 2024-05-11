@@ -4,19 +4,102 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import model.Investidor;
+import controller.Controller_Investidor;
 /**
  *
  * @author rgara
  */
 public class investidor_window extends javax.swing.JFrame {
 
+    Controller_Investidor control;
     /**
      * Creates new form investidor_window
      */
-    public investidor_window() {
+    public investidor_window(Investidor investidor) {
         initComponents();
+        control = new Controller_Investidor(this, investidor);
+        System.out.println(investidor);
     }
 
+    public JTextArea getConsultaCotacao() {
+        return ConsultaCotacao;
+    }
+
+    public void setConsultaCotacao(JTextArea ConsultaCotacao) {
+        this.ConsultaCotacao = ConsultaCotacao;
+    }
+
+    public JButton getBtnComprarCrypto() {
+        return btnComprarCrypto;
+    }
+
+    public void setBtnComprarCrypto(JButton btnComprarCrypto) {
+        this.btnComprarCrypto = btnComprarCrypto;
+    }
+
+    public JButton getBtnConsultarExtrato() {
+        return btnConsultarExtrato;
+    }
+
+    public void setBtnConsultarExtrato(JButton btnConsultarExtrato) {
+        this.btnConsultarExtrato = btnConsultarExtrato;
+    }
+
+    public JButton getBtnConsultarSaldo() {
+        return btnConsultarSaldo;
+    }
+
+    public void setBtnConsultarSaldo(JButton btnConsultarSaldo) {
+        this.btnConsultarSaldo = btnConsultarSaldo;
+    }
+
+    public JButton getBtnDepositar() {
+        return btnDepositar;
+    }
+
+    public void setBtnDepositar(JButton btnDepositar) {
+        this.btnDepositar = btnDepositar;
+    }
+
+    public JButton getBtnSacar() {
+        return btnSacar;
+    }
+
+    public void setBtnSacar(JButton btnSacar) {
+        this.btnSacar = btnSacar;
+    }
+
+    public JButton getBtnVenderCrypto() {
+        return btnVenderCrypto;
+    }
+
+    public void setBtnVenderCrypto(JButton btnVenderCrypto) {
+        this.btnVenderCrypto = btnVenderCrypto;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JLabel getLblInstrucao() {
+        return lblInstrucao;
+    }
+
+    public void setLblInstrucao(JLabel lblInstrucao) {
+        this.lblInstrucao = lblInstrucao;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,21 +109,101 @@ public class investidor_window extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblInstrucao = new javax.swing.JLabel();
+        btnConsultarSaldo = new javax.swing.JButton();
+        btnConsultarExtrato = new javax.swing.JButton();
+        btnDepositar = new javax.swing.JButton();
+        btnSacar = new javax.swing.JButton();
+        btnComprarCrypto = new javax.swing.JButton();
+        btnVenderCrypto = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ConsultaCotacao = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela investidor");
+
+        lblInstrucao.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblInstrucao.setText("Selecione uma das opções");
+
+        btnConsultarSaldo.setText("Consultar saldo");
+
+        btnConsultarExtrato.setText("Consultor extrato");
+
+        btnDepositar.setText("Depositar");
+
+        btnSacar.setText("Sacar");
+        btnSacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSacarActionPerformed(evt);
+            }
+        });
+
+        btnComprarCrypto.setText("Comprar Crypto");
+
+        btnVenderCrypto.setText("Vender Crypto");
+
+        ConsultaCotacao.setColumns(20);
+        ConsultaCotacao.setRows(5);
+        jScrollPane1.setViewportView(ConsultaCotacao);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnComprarCrypto, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnVenderCrypto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSacar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnConsultarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnConsultarExtrato)))
+                .addGap(89, 89, 89))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(lblInstrucao)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addComponent(lblInstrucao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnConsultarExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSacar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnComprarCrypto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVenderCrypto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSacarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +241,14 @@ public class investidor_window extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea ConsultaCotacao;
+    private javax.swing.JButton btnComprarCrypto;
+    private javax.swing.JButton btnConsultarExtrato;
+    private javax.swing.JButton btnConsultarSaldo;
+    private javax.swing.JButton btnDepositar;
+    private javax.swing.JButton btnSacar;
+    private javax.swing.JButton btnVenderCrypto;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblInstrucao;
     // End of variables declaration//GEN-END:variables
 }
