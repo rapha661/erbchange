@@ -115,7 +115,7 @@ public class login_window extends javax.swing.JFrame {
         lblLogin.setText("Bem vindo ao Erbchange");
 
         lblCpf.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        lblCpf.setText("Usuário:");
+        lblCpf.setText("CPF:");
 
         lblSenha.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         lblSenha.setText("Senha:");
