@@ -6,7 +6,6 @@ import model.Investidor;
 import java.sql.ResultSet;
 
 
-
 public class InvestidorDAO {
     private Connection conn;
     
@@ -22,26 +21,25 @@ public class InvestidorDAO {
     }
     
     public ResultSet consultar(Investidor investidor) throws SQLException{
-        String sql = "select * from investidor where usuario = ? and senha = ?";
+        String sql = "select * from investidor where cpf = ? and senha = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, investidor.getNome());
-        statement.setString(2, investidor.getCpf());
-        statement.setString(3, investidor.getSenha());
+        statement.setString(1, investidor.getCpf());
+        statement.setString(2, investidor.getSenha());
         statement.execute();
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
     
     public void atualizar(Investidor investidor) throws SQLException{
-        String sql = "update investidor set senha = / ? where usuario = ?";
+        String sql = "update investidor set senha = / ? where cpf = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(3,investidor.getSenha());
+        statement.setString(1,investidor.getSenha());
     }
     
     public void remover(Investidor investidor) throws SQLException{
-        String sql = "delete from investidor where usuario =?";
+        String sql = "delete from investidor where cpf =?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1,investidor.getSenha());
+        statement.setString(2,investidor.getSenha());
         statement.execute();
         conn.close();
     }
