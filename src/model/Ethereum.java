@@ -4,9 +4,9 @@ package model;
  * @author rgara
  */
 
-public class Ripple extends Moedas {
-    public Ripple(double cotacao) {
-        super(0.01, 0.01, cotacao);
+public class Ethereum extends Moedas {
+    public Ethereum(double cotacao) {
+        super(0.01, 0.02, cotacao);
     }
 
     @Override
@@ -17,3 +17,4 @@ public class Ripple extends Moedas {
         return novaCotacao;
     }
 }
+

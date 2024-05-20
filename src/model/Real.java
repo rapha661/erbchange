@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 /**
  *
  * @author rgara
  */
-public class Real {
-    
+
+public class Real extends Moedas {
+    public Real(double cotacao) {
+        super(0, 0, cotacao);  // Sem taxas de compra e venda, e com cotação inicial estática
+    }
+
+    @Override
+    public double novaCotacao() {
+        // Não aplica nenhuma mudança na cotação, já que o foco é usar o Real como uma moeda estável
+        return getCotacao();
+    }
 }
+

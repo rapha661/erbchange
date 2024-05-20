@@ -1,14 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author rgara
- */
-public interface Tarifacao {
-    double getTaxaCompra();
-    void setTaxaCompra(double taxaCompra);
+public class Tarifacao {
+
+    // Calcula a taxa de compra com base no montante e na taxa
+    public static double calcularTaxaCompra(double quantidade, double taxaCompra) {
+        return quantidade * taxaCompra;
+    }
+
+    // Calcula a taxa de venda com base no montante e na taxa
+    public static double calcularTaxaVenda(double quantidade, double taxaVenda) {
+        return quantidade * taxaVenda;
+    }
 }
