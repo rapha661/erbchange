@@ -5,8 +5,8 @@ package model;
  */
 
 public class Ripple extends Moedas implements Tarifacao {
-    public Ripple(double cotacao) {
-        super(0.01, 0.01, cotacao);
+    public Ripple() {
+        super(0.01, 0.01, 2.77);
     }
 
     @Override

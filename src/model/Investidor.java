@@ -13,8 +13,7 @@ public class Investidor {
     private String senha;
     private Carteira carteira;
 
-    // Construtor
-    public Investidor(String nome, String cpf, String senha) {
+    public Investidor(String nome, String cpf, String senha, Carteira carteira) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
@@ -45,28 +44,7 @@ public class Investidor {
         this.senha = senha;
     }
 
-    public boolean validarSenha(String senha) {
-        return this.senha.equals(senha);
-    }
-
-    public void realizarTransacao(Transacao transacao, String senha) {
-        if (validarSenha(senha)) {
-            carteira.aplicarTransacao(transacao);
-            System.out.println("Transação realizada com sucesso.");
-        } else {
-            System.out.println("Senha inválida. Transação não realizada.");
-        }
-    }
-
-    public void imprimirTransacoes(String senha) {
-        if (validarSenha(senha)) {
-            List<Transacao> transacoes = carteira.obterTransacoes();
-            System.out.println("Transações do Investidor " + nome + ":");
-            for (Transacao transacao : transacoes) {
-                System.out.println(transacao);
-            }
-        } else {
-            System.out.println("Senha inválida. Não foi possível acessar as transações.");
-        }
-    }
+    public String getSenha() {
+        return senha;
+    }   
 }

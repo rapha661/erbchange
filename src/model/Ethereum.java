@@ -5,8 +5,8 @@ package model;
  */
 
 public class Ethereum extends Moedas implements Tarifacao {
-    public Ethereum(double cotacao) {
-        super(0.01, 0.02, cotacao);
+    public Ethereum() {
+        super(0.01, 0.02,18898);
     }
 
     @Override

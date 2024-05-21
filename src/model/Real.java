@@ -5,8 +5,8 @@ package model;
  */
 
 public class Real extends Moedas {
-    public Real(double cotacao) {
-        super(0, 0, cotacao);
+    public Real() {
+        super(0, 0, 1);
     }
 
     @Override
