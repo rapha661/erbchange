@@ -98,6 +98,38 @@ public class investidor_window extends javax.swing.JFrame {
         this.lblInstrucao = lblInstrucao;
     }
 
+    public Controller_Investidor getControl() {
+        return control;
+    }
+
+    public void setControl(Controller_Investidor control) {
+        this.control = control;
+    }
+
+    public JButton getBtnAlterarSenha() {
+        return btnAlterarSenha;
+    }
+
+    public void setBtnAlterarSenha(JButton btnAlterarSenha) {
+        this.btnAlterarSenha = btnAlterarSenha;
+    }
+
+    public JButton getBtnatualizarCotacao() {
+        return btnatualizarCotacao;
+    }
+
+    public void setBtnatualizarCotacao(JButton btnatualizarCotacao) {
+        this.btnatualizarCotacao = btnatualizarCotacao;
+    }
+
+    public JButton getBtnsair() {
+        return btnsair;
+    }
+
+    public void setBtnsair(JButton btnsair) {
+        this.btnsair = btnsair;
+    }
+
     
     
     /**
@@ -118,6 +150,9 @@ public class investidor_window extends javax.swing.JFrame {
         btnVenderCrypto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ConsultaCotacao = new javax.swing.JTextArea();
+        btnatualizarCotacao = new javax.swing.JButton();
+        btnsair = new javax.swing.JButton();
+        btnAlterarSenha = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela investidor");
@@ -125,12 +160,16 @@ public class investidor_window extends javax.swing.JFrame {
         lblInstrucao.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         lblInstrucao.setText("Selecione uma das opções");
 
+        btnConsultarSaldo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnConsultarSaldo.setText("Consultar saldo");
 
+        btnConsultarExtrato.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnConsultarExtrato.setText("Consultor extrato");
 
+        btnDepositar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnDepositar.setText("Depositar");
 
+        btnSacar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnSacar.setText("Sacar");
         btnSacar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,64 +177,90 @@ public class investidor_window extends javax.swing.JFrame {
             }
         });
 
+        btnComprarCrypto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnComprarCrypto.setText("Comprar Crypto");
 
+        btnVenderCrypto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnVenderCrypto.setText("Vender Crypto");
 
         ConsultaCotacao.setColumns(20);
         ConsultaCotacao.setRows(5);
         jScrollPane1.setViewportView(ConsultaCotacao);
 
+        btnatualizarCotacao.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnatualizarCotacao.setText("Atualizar cotação");
+
+        btnsair.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnsair.setText("Sair");
+        btnsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsairActionPerformed(evt);
+            }
+        });
+
+        btnAlterarSenha.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnAlterarSenha.setText("Alterar senha");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(btnComprarCrypto, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnVenderCrypto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(btnDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSacar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnConsultarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnConsultarExtrato)))
-                .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(lblInstrucao)))
+                        .addGap(85, 85, 85)
+                        .addComponent(lblInstrucao))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(btnComprarCrypto, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnVenderCrypto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(btnDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnSacar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnConsultarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnConsultarExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnatualizarCotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnsair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAlterarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
+                .addGap(9, 9, 9)
                 .addComponent(lblInstrucao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnConsultarExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnConsultarExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnatualizarCotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnConsultarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSacar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSacar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAlterarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnComprarCrypto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnVenderCrypto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnVenderCrypto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -204,6 +269,10 @@ public class investidor_window extends javax.swing.JFrame {
     private void btnSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSacarActionPerformed
+
+    private void btnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsairActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnsairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,12 +311,15 @@ public class investidor_window extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea ConsultaCotacao;
+    private javax.swing.JButton btnAlterarSenha;
     private javax.swing.JButton btnComprarCrypto;
     private javax.swing.JButton btnConsultarExtrato;
     private javax.swing.JButton btnConsultarSaldo;
     private javax.swing.JButton btnDepositar;
     private javax.swing.JButton btnSacar;
     private javax.swing.JButton btnVenderCrypto;
+    private javax.swing.JButton btnatualizarCotacao;
+    private javax.swing.JButton btnsair;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblInstrucao;
     // End of variables declaration//GEN-END:variables
