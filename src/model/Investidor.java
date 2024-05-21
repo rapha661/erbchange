@@ -1,22 +1,24 @@
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author rgara
  */
+
 public class Investidor {
-    
-    private String nome, cpf, senha;
-    private int carteira;
-    
-    public Investidor(){
-    }
-    
-    public Investidor(String nome, String cpf, String senha, Integer carteira){
+    private String nome;
+    private String cpf;
+    private String senha;
+    private Carteira carteira;
+
+    // Construtor
+    public Investidor(String nome, String cpf, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
-        this.carteira = carteira;
+        this.carteira = new Carteira();
     }
 
     public String getNome() {
@@ -35,21 +37,36 @@ public class Investidor {
         this.cpf = cpf;
     }
 
-    public String getSenha() {
-        return senha;
+    public Carteira getCarteira() {
+        return carteira;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    public int getCarteira() {
-        return carteira;
+    public boolean validarSenha(String senha) {
+        return this.senha.equals(senha);
     }
 
-    public void setCarteira(int carteira) {
-        this.carteira = carteira;
+    public void realizarTransacao(Transacao transacao, String senha) {
+        if (validarSenha(senha)) {
+            carteira.aplicarTransacao(transacao);
+            System.out.println("Transação realizada com sucesso.");
+        } else {
+            System.out.println("Senha inválida. Transação não realizada.");
+        }
     }
-    
-    
+
+    public void imprimirTransacoes(String senha) {
+        if (validarSenha(senha)) {
+            List<Transacao> transacoes = carteira.obterTransacoes();
+            System.out.println("Transações do Investidor " + nome + ":");
+            for (Transacao transacao : transacoes) {
+                System.out.println(transacao);
+            }
+        } else {
+            System.out.println("Senha inválida. Não foi possível acessar as transações.");
+        }
+    }
 }

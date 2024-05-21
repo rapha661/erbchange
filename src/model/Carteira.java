@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
-class Carteira {
+public class Carteira {
     private double saldoBRL;
     private double saldoBTC;
     private double saldoETH;
     private double saldoXRP;
     private List<Transacao> transacoes;
+
+    private Bitcoin saldoBitcoin;
+    private Ethereum saldoEthereum;
+    private Ripple saldoRipple;
+    private Real saldoReal;
 
     public Carteira() {
         this.saldoBRL = 0;
@@ -17,51 +22,47 @@ class Carteira {
         this.saldoETH = 0;
         this.saldoXRP = 0;
         this.transacoes = new ArrayList<>();
+        this.saldoBitcoin = new Bitcoin(364235);
+        this.saldoEthereum = new Ethereum(18898);
+        this.saldoRipple = new Ripple(2.77);      
+        this.saldoReal = new Real(1);            
+    }
+
+    private Moedas obterMoeda(String moeda) {
+        switch (moeda) {
+            case "BTC":
+                return saldoBitcoin;
+            case "ETH":
+                return saldoEthereum;
+            case "XRP":
+                return saldoRipple;
+            case "BRL":
+                return saldoReal;
+            default:
+                return null;
+        }
     }
 
     public void aplicarTransacao(Transacao transacaoOriginal) {
         double quantidade = transacaoOriginal.getQuantidade();
-        String moeda = transacaoOriginal.getMoeda();
-        Date data = transacaoOriginal.getData();
-
+        Moedas moeda = obterMoeda(transacaoOriginal.getMoeda());
+        if (moeda == null) {
+            System.out.println("Erro: Moeda desconhecida " + transacaoOriginal.getMoeda());
+            return; 
+        }
+        
         if (quantidade > 0) {
-            quantidade = aplicarTaxaCompra(moeda, quantidade);
+            quantidade = moeda.calcularTaxaCompra(quantidade);
         } else {
-            quantidade = aplicarTaxaVenda(moeda, quantidade);
+            quantidade = moeda.calcularTaxaVenda(quantidade);
         }
 
-        double custoTransacao = calcularCustoTransacao(quantidade, moeda);
-        double taxaTransacao = calcularTaxaTransacao(quantidade, moeda);
-        double saldoPosTransacao = calcularSaldoPosTransacao(moeda, quantidade);
+        double custoTransacao = calcularCustoTransacao(quantidade, transacaoOriginal.getMoeda());
+        double taxaTransacao = calcularTaxaTransacao(quantidade, transacaoOriginal.getMoeda());
+        double saldoPosTransacao = calcularSaldoPosTransacao(transacaoOriginal.getMoeda(), quantidade);
 
-        Transacao novaTransacao = new Transacao(data, quantidade, moeda, custoTransacao, taxaTransacao, saldoPosTransacao);
+        Transacao novaTransacao = new Transacao(transacaoOriginal.getData(), quantidade, transacaoOriginal.getMoeda(), custoTransacao, taxaTransacao, saldoPosTransacao);
         adicionarTransacao(novaTransacao);
-    }
-
-    private double aplicarTaxaCompra(String moeda, double quantidade) {
-        switch (moeda) {
-            case "BTC":
-                return quantidade * (1 - 0.02); 
-            case "ETH":
-                return quantidade * (1 - 0.01);
-            case "XRP":
-                return quantidade * (1 - 0.01);
-            default:
-                return quantidade;
-        }
-    }
-
-    private double aplicarTaxaVenda(String moeda, double quantidade) {
-        switch (moeda) {
-            case "BTC":
-                return quantidade * (1 - 0.03);
-            case "ETH":
-                return quantidade * (1 - 0.02); 
-            case "XRP":
-                return quantidade * (1 - 0.01);
-            default:
-                return quantidade;
-        }
     }
 
     private double calcularCustoTransacao(double quantidade, String moeda) {
@@ -109,4 +110,3 @@ class Carteira {
         return transacoes;
     }
 }
-

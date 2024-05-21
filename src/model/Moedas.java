@@ -3,11 +3,12 @@ package model;
  *
  * @author rgara
  */
+
 import java.util.Random;
 
 public abstract class Moedas {
     private double taxa_compra, taxa_venda, cotacao;
-    protected static final Random random = new Random();  // Certifique-se de que é acessível pelas subclasses
+    protected static final Random random = new Random();
 
     public Moedas(double taxa_compra, double taxa_venda, double cotacao) {
         this.taxa_compra = taxa_compra;
@@ -40,12 +41,4 @@ public abstract class Moedas {
     }
 
     public abstract double novaCotacao();
-    
-    public double aplicarTaxaCompra(double quantidade) {
-        return Tarifacao.calcularTaxaCompra(quantidade, getTaxa_compra());
-    }
-
-    public double aplicarTaxaVenda(double quantidade) {
-        return Tarifacao.calcularTaxaVenda(quantidade, getTaxa_venda());
-    }
 }

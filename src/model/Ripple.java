@@ -4,7 +4,7 @@ package model;
  * @author rgara
  */
 
-public class Ripple extends Moedas {
+public class Ripple extends Moedas implements Tarifacao {
     public Ripple(double cotacao) {
         super(0.01, 0.01, cotacao);
     }
@@ -16,4 +16,15 @@ public class Ripple extends Moedas {
         setCotacao(novaCotacao);
         return novaCotacao;
     }
+
+    @Override
+    public double calcularTaxaCompra(double quantidade) {
+        return quantidade * (1 - getTaxa_compra());
+    }
+
+    @Override
+    public double calcularTaxaVenda(double quantidade) {
+        return quantidade * (1 - getTaxa_venda());
+    }
 }
+

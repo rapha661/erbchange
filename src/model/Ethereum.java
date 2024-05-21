@@ -4,7 +4,7 @@ package model;
  * @author rgara
  */
 
-public class Ethereum extends Moedas {
+public class Ethereum extends Moedas implements Tarifacao {
     public Ethereum(double cotacao) {
         super(0.01, 0.02, cotacao);
     }
@@ -16,5 +16,16 @@ public class Ethereum extends Moedas {
         setCotacao(novaCotacao);
         return novaCotacao;
     }
+
+    @Override
+    public double calcularTaxaCompra(double quantidade) {
+        return quantidade * (1 - getTaxa_compra());
+    }
+
+    @Override
+    public double calcularTaxaVenda(double quantidade) {
+        return quantidade * (1 - getTaxa_venda());
+    }
 }
+
 

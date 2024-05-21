@@ -25,7 +25,7 @@ class Transacao {
                              data, quantidade, moeda, custoTransacao, taxaTransacao, moeda, saldoPosTransacao);
     }
 
-    // Getters para cada campo, se necessário
+
     public Date getData() {
         return data;
     }
