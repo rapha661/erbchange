@@ -14,35 +14,29 @@ public class InvestidorDAO {
     }
 
     public void inserir(Investidor investidor) throws SQLException {
-        String sql = "INSERT INTO investidor (nome, cpf, senha) VALUES (?, ?, ?)";
-        try (PreparedStatement statement = conn.prepareStatement(sql)) {
-            statement.setString(1, investidor.getNome());
-            statement.setString(2, investidor.getCpf());
-            statement.setString(3, investidor.getSenha());  
-            statement.executeUpdate();
+        String sql = "INSERT INTO investidor (nome, cpf, senha) VALUES ('"+investidor.getNome()+"','"+investidor.getCpf()+"', '"+investidor.getSenha()+"')";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.execute();
+        conn.close();
         }  
-    }
 
     public ResultSet consultar(Investidor investidor) throws SQLException {
         String sql = "SELECT * FROM investidor WHERE cpf = ? AND senha = ?";
-        ResultSet resultado = null;
-        try (PreparedStatement statement = conn.prepareStatement(sql)) {
-            statement.setString(1, investidor.getCpf());
-            statement.setString(2, investidor.getSenha());
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
-                resultado = rs;
-            }
-        } 
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, investidor.getCpf());
+        statement.setString(2, investidor.getSenha());
+        statement.execute();
+        ResultSet resultado = statement.getResultSet(); 
         return resultado;
     }
 
     public void atualizar(Investidor investidor) throws SQLException {
         String sql = "UPDATE investidor SET senha = ? WHERE cpf = ?";
-        try (PreparedStatement statement = conn.prepareStatement(sql)) {
-            statement.setString(1, investidor.getSenha());
-            statement.setString(2, investidor.getCpf());
-            statement.executeUpdate();
-        }
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, investidor.getSenha());
+        statement.setString(2, investidor.getCpf());
+        statement.executeUpdate();
+        conn.close();
+        
     }
 }

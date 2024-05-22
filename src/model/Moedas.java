@@ -7,13 +7,21 @@ package model;
 import java.util.Random;
 
 public abstract class Moedas {
-    private double taxa_compra, taxa_venda, cotacao;
+    private double taxa_compra, taxa_venda, cotacao, quantidade_carteira;
     protected static final Random random = new Random();
 
+    public Moedas(double taxa_compra, double taxa_venda, double cotacao, double quantidade_carteira) {
+        this.taxa_compra = taxa_compra;
+        this.taxa_venda = taxa_venda;
+        this.cotacao = cotacao;
+        this.quantidade_carteira = quantidade_carteira;
+    }
+    
     public Moedas(double taxa_compra, double taxa_venda, double cotacao) {
         this.taxa_compra = taxa_compra;
         this.taxa_venda = taxa_venda;
         this.cotacao = cotacao;
+        this.quantidade_carteira = 0;
     }
 
     public double getTaxa_compra() {
@@ -40,5 +48,25 @@ public abstract class Moedas {
         this.cotacao = cotacao;
     }
 
+    public double getQuantidade_carteira() {
+        return quantidade_carteira;
+    }
+
+    public void setQuantidade_carteira(double quantidade_carteira) {
+        this.quantidade_carteira = quantidade_carteira;
+    }
+    
+    public void depositar(double quantidade) {
+        quantidade_carteira += quantidade;
+    }
+
+    public void sacar(double quantidade) {
+        if (quantidade <= quantidade_carteira) {
+            quantidade_carteira -= quantidade;
+        } else {
+            System.out.println("Saldo insuficiente!");
+        }
+    }
+    
     public abstract double novaCotacao();
 }

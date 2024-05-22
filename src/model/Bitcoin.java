@@ -6,7 +6,7 @@ package model;
 
 public class Bitcoin extends Moedas implements Tarifacao {
     public Bitcoin() {
-        super(0.02, 0.03, 364235);
+        super(0.02, 0.03, 364235, 0);
     }
 
     @Override
