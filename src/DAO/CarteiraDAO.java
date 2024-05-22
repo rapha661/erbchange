@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.Carteira;
+import model.Moedas;
 
 public class CarteiraDAO {
     private Connection conn;
@@ -22,16 +23,14 @@ public class CarteiraDAO {
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     carteira_investidor = new Carteira();
-                    double saldoBRL = rs.getDouble("BRL");
-                    double saldoBTC = rs.getDouble("BTC");
-                    double saldoETH = rs.getDouble("ETH");
-                    double saldoXRP = rs.getDouble("XRP");
-                    carteira_investidor.setMoedas("BRL", saldoBRL);
-                    
-                    
+                    String nomes_moedas[] = {"BRL", "BTC", "ETH", "XRP"};
+                    for(String nome:nomes_moedas){
+                        double saldo = rs.getDouble(nome);
+                        carteira_investidor.setQuantidadeCarteira(nome, saldo);
+                    } 
                 }
             }
         }
-        return carteira;
+        return carteira_investidor;
     }
 }
