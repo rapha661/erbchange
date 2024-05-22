@@ -27,41 +27,34 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="420" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                       <Component id="lblInstrucao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="131" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnComprarCrypto" min="-2" pref="118" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnVenderCrypto" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnDepositar" min="-2" pref="118" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnSacar" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnConsultarSaldo" min="-2" pref="118" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnConsultarExtrato" min="-2" pref="122" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnatualizarCotacao" max="32767" attributes="0"/>
-                          <Component id="btnsair" max="32767" attributes="0"/>
-                          <Component id="btnAlterarSenha" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnConsultarSaldo" pref="140" max="32767" attributes="0"/>
+                  <Component id="btnDepositar" max="32767" attributes="0"/>
+                  <Component id="btnComprarCrypto" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnConsultarExtrato" pref="140" max="32767" attributes="0"/>
+                  <Component id="btnVenderCrypto" max="32767" attributes="0"/>
+                  <Component id="btnSacar" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnatualizarCotacao" pref="140" max="32767" attributes="0"/>
+                  <Component id="btnAlterarSenha" max="32767" attributes="0"/>
+                  <Component id="btnsair" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,27 +66,23 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="137" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnConsultarExtrato" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="btnatualizarCotacao" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="btnConsultarSaldo" min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnConsultarSaldo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btnConsultarExtrato" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btnatualizarCotacao" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnSacar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="btnAlterarSenha" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="btnDepositar" min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnAlterarSenha" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btnSacar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btnDepositar" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnComprarCrypto" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnVenderCrypto" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="btnsair" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btnsair" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="14" max="32767" attributes="0"/>
