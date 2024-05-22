@@ -9,21 +9,21 @@ import javax.swing.JOptionPane;
 import model.Carteira;
 import model.Investidor;
 import DAO.CarteiraDAO;
-import view.login_window;
-import view.investidor_window;
+import view.Login_window;
+import view.Investidor_window;
 
 public class Controller_login {
-    private login_window view;
+    private Login_window view;
 
-    public Controller_login(login_window view) {
+    public Controller_login(Login_window view) {
         this.view = view;
     }
 
-    public login_window getView() {
+    public Login_window getView() {
         return view;
     }
 
-    public void setView(login_window view) {
+    public void setView(Login_window view) {
         this.view = view;
     }
     
@@ -47,7 +47,7 @@ public class Controller_login {
                 Investidor investidorCompleto = new Investidor(nome, cpf, senha, carteira);
                 JOptionPane.showMessageDialog(view, "Login Feito", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 
-                investidor_window viewUsuario = new investidor_window(investidorCompleto);
+                Investidor_window viewUsuario = new Investidor_window(investidorCompleto);
                 viewUsuario.setVisible(true);
                 view.setVisible(false); 
             } else {

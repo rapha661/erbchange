@@ -4,19 +4,99 @@
  */
 package view;
 
+import controller.Controller_Cadastro;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author rgara
  */
-public class novo_usuario_window extends javax.swing.JFrame {
+public class Cadastro_window extends javax.swing.JFrame {
 
     /**
      * Creates new form novo_usuario_window
      */
-    public novo_usuario_window() {
+    public Cadastro_window() {
         initComponents();
+        controller = new Controller_Cadastro(this);
     }
 
+    public Controller_Cadastro getController() {
+        return controller;
+    }
+
+    public void setController(Controller_Cadastro controller) {
+        this.controller = controller;
+    }
+
+    public JButton getBtCadastrar() {
+        return btCadastrar;
+    }
+
+    public void setBtCadastrar(JButton btCadastrar) {
+        this.btCadastrar = btCadastrar;
+    }
+
+    public JTextField getInsert_senha_novo_usuario() {
+        return insert_senha_novo_usuario;
+    }
+
+    public void setInsert_senha_novo_usuario(JTextField inserrt_senha_novo_usuario) {
+        this.insert_senha_novo_usuario = inserrt_senha_novo_usuario;
+    }
+
+    public JTextField getInsert_cpf_novo_usuario() {
+        return insert_cpf_novo_usuario;
+    }
+
+    public void setInsert_cpf_novo_usuario(JTextField insert_cpf_novo_usuario) {
+        this.insert_cpf_novo_usuario = insert_cpf_novo_usuario;
+    }
+
+    public JTextField getInsert_nome_novo_usuario() {
+        return insert_nome_novo_usuario;
+    }
+
+    public void setInsert_nome_novo_usuario(JTextField insert_nome_novo_usuario) {
+        this.insert_nome_novo_usuario = insert_nome_novo_usuario;
+    }
+
+    public JLabel getLblCPF() {
+        return lblCPF;
+    }
+
+    public void setLblCPF(JLabel lblCPF) {
+        this.lblCPF = lblCPF;
+    }
+
+    public JLabel getLblNome() {
+        return lblNome;
+    }
+
+    public void setLblNome(JLabel lblNome) {
+        this.lblNome = lblNome;
+    }
+
+    public JLabel getLblNovoUsuario() {
+        return lblNovoUsuario;
+    }
+
+    public void setLblNovoUsuario(JLabel lblNovoUsuario) {
+        this.lblNovoUsuario = lblNovoUsuario;
+    }
+
+    public JLabel getLblSenha() {
+        return lblSenha;
+    }
+
+    public void setLblSenha(JLabel lblSenha) {
+        this.lblSenha = lblSenha;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +112,7 @@ public class novo_usuario_window extends javax.swing.JFrame {
         lblSenha = new javax.swing.JLabel();
         insert_cpf_novo_usuario = new javax.swing.JTextField();
         insert_nome_novo_usuario = new javax.swing.JTextField();
-        inserrt_senha_novo_usuario = new javax.swing.JTextField();
+        insert_senha_novo_usuario = new javax.swing.JTextField();
         btCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,6 +131,11 @@ public class novo_usuario_window extends javax.swing.JFrame {
 
         btCadastrar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,7 +160,7 @@ public class novo_usuario_window extends javax.swing.JFrame {
                                     .addComponent(insert_cpf_novo_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(inserrt_senha_novo_usuario)))))
+                                .addComponent(insert_senha_novo_usuario)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -98,7 +183,7 @@ public class novo_usuario_window extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSenha)
-                    .addComponent(inserrt_senha_novo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insert_senha_novo_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -106,6 +191,10 @@ public class novo_usuario_window extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        controller.salvarInvestidor();
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,12 +230,12 @@ public class novo_usuario_window extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+    private Controller_Cadastro controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
-    private javax.swing.JTextField inserrt_senha_novo_usuario;
     private javax.swing.JTextField insert_cpf_novo_usuario;
     private javax.swing.JTextField insert_nome_novo_usuario;
+    private javax.swing.JTextField insert_senha_novo_usuario;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNovoUsuario;

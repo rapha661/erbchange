@@ -6,13 +6,13 @@ import DAO.Conexao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import view.investidor_window;
+import view.Investidor_window;
 
 public class Controller_Investidor {
-    private investidor_window view;
+    private Investidor_window view;
     private Investidor investidor;
 
-    public Controller_Investidor(investidor_window view, Investidor investidor) {
+    public Controller_Investidor(Investidor_window view, Investidor investidor) {
         this.view = view;
         this.investidor = investidor;
     }
