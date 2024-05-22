@@ -8,10 +8,10 @@ public class Carteira {
 
     public Carteira() {
         this.moedas = new HashMap<>();
-        this.moedas.put("BRL", new Real());
-        this.moedas.put("BTC", new Bitcoin());
-        this.moedas.put("ETH", new Ethereum());
-        this.moedas.put("XRP", new Ripple());
+        this.moedas.put("real", new Real());
+        this.moedas.put("bitcoin", new Bitcoin());
+        this.moedas.put("ethereum", new Ethereum());
+        this.moedas.put("ripple", new Ripple());
     }
 
     public Map<String, Moedas> getMoedas() {
