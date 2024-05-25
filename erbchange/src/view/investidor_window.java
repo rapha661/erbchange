@@ -300,6 +300,7 @@ public class investidor_window extends javax.swing.JFrame {
 
     private void btnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsairActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnsairActionPerformed
 
     private void btnAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarSenhaActionPerformed
