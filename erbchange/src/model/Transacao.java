@@ -1,32 +1,27 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
-class Transacao {
+public class Transacao {
+    private int idTransacao;
     private String cpf;
-    private Date data;
+    private LocalDateTime dataHora;
     private String tipo;
-    private double valor_total;
+    private double valorTotal;
     private String moeda;
     private double cotacao;
-    private double taxaTransacao;
-    private double saldoRealPosTransacao;
-    private double saldoBitcoinPosTransacao;
-    private double saldoEthereumPosTransacao;
-    private double saldoRipplePosTransacao;    
-    
-    public Transacao(String cpf, Date data, String tipo, double valor_total, String moeda, double cotacao, double taxaTransacao, double saldoRealPosTransacao, double saldoBitcoinPosTransacao, double saldoEthereumPosTransacao, double saldoRipplePosTransacao) {
-        this.cpf = cpf;
-        this.data = data;
-        this.tipo = tipo;
-        this.valor_total = valor_total;
-        this.moeda = moeda;
-        this.cotacao = cotacao;
-        this.taxaTransacao = taxaTransacao;
-        this.saldoRealPosTransacao = saldoRealPosTransacao;
-        this.saldoBitcoinPosTransacao = saldoBitcoinPosTransacao;
-        this.saldoEthereumPosTransacao = saldoEthereumPosTransacao;
-        this.saldoRipplePosTransacao = saldoRipplePosTransacao;
+    private double taxa;
+    private double saldoReal;
+    private double saldoBitcoin;
+    private double saldoEthereum;
+    private double saldoRipple;
+
+    public int getIdTransacao() {
+        return idTransacao;
+    }
+
+    public void setIdTransacao(int idTransacao) {
+        this.idTransacao = idTransacao;
     }
 
     public String getCpf() {
@@ -37,12 +32,12 @@ class Transacao {
         this.cpf = cpf;
     }
 
-    public Date getData() {
-        return data;
+    public LocalDateTime getDataHora() {
+        return dataHora;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
     }
 
     public String getTipo() {
@@ -53,12 +48,12 @@ class Transacao {
         this.tipo = tipo;
     }
 
-    public double getValor_total() {
-        return valor_total;
+    public double getValorTotal() {
+        return valorTotal;
     }
 
-    public void setValor_total(double valor_total) {
-        this.valor_total = valor_total;
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
     public String getMoeda() {
@@ -77,44 +72,45 @@ class Transacao {
         this.cotacao = cotacao;
     }
 
-    public double getTaxaTransacao() {
-        return taxaTransacao;
+    public double getTaxa() {
+        return taxa;
     }
 
-    public void setTaxaTransacao(double taxaTransacao) {
-        this.taxaTransacao = taxaTransacao;
+    public void setTaxa(double taxa) {
+        this.taxa = taxa;
     }
 
-    public double getSaldoRealPosTransacao() {
-        return saldoRealPosTransacao;
+    public double getSaldoReal() {
+        return saldoReal;
     }
 
-    public void setSaldoRealPosTransacao(double saldoRealPosTransacao) {
-        this.saldoRealPosTransacao = saldoRealPosTransacao;
+    public void setSaldoReal(double saldoReal) {
+        this.saldoReal = saldoReal;
     }
 
-    public double getSaldoBitcoinPosTransacao() {
-        return saldoBitcoinPosTransacao;
+    public double getSaldoBitcoin() {
+        return saldoBitcoin;
     }
 
-    public void setSaldoBitcoinPosTransacao(double saldoBitcoinPosTransacao) {
-        this.saldoBitcoinPosTransacao = saldoBitcoinPosTransacao;
+    public void setSaldoBitcoin(double saldoBitcoin) {
+        this.saldoBitcoin = saldoBitcoin;
     }
 
-    public double getSaldoEthereumPosTransacao() {
-        return saldoEthereumPosTransacao;
+    public double getSaldoEthereum() {
+        return saldoEthereum;
     }
 
-    public void setSaldoEthereumPosTransacao(double saldoEthereumPosTransacao) {
-        this.saldoEthereumPosTransacao = saldoEthereumPosTransacao;
+    public void setSaldoEthereum(double saldoEthereum) {
+        this.saldoEthereum = saldoEthereum;
     }
 
-    public double getSaldoRipplePosTransacao() {
-        return saldoRipplePosTransacao;
+    public double getSaldoRipple() {
+        return saldoRipple;
     }
 
-    public void setSaldoRipplePosTransacao(double saldoRipplePosTransacao) {
-        this.saldoRipplePosTransacao = saldoRipplePosTransacao;
+    public void setSaldoRipple(double saldoRipple) {
+        this.saldoRipple = saldoRipple;
     }
 
+    
 }

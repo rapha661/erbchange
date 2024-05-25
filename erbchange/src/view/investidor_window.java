@@ -166,6 +166,11 @@ public class investidor_window extends javax.swing.JFrame {
 
         btnConsultarExtrato.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnConsultarExtrato.setText("Consultor extrato");
+        btnConsultarExtrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarExtratoActionPerformed(evt);
+            }
+        });
 
         btnDepositar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnDepositar.setText("Depositar");
@@ -296,6 +301,7 @@ public class investidor_window extends javax.swing.JFrame {
         this.dispose();
         SacarReais_window sacarWindow = new SacarReais_window(investidor);
         sacarWindow.setVisible(true);
+        sacarWindow.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSacarActionPerformed
 
     private void btnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsairActionPerformed
@@ -307,12 +313,14 @@ public class investidor_window extends javax.swing.JFrame {
         this.dispose();
         Alterar_window aw = new Alterar_window(investidor);
         aw.setVisible(true);
+        aw.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnAlterarSenhaActionPerformed
 
     private void btnConsultarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarSaldoActionPerformed
         this.dispose();
         ConsultarSaldo_window saldoWindow = new ConsultarSaldo_window(investidor);
         saldoWindow.setVisible(true);
+        saldoWindow.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnConsultarSaldoActionPerformed
 
     private void btnatualizarCotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatualizarCotacaoActionPerformed
@@ -324,6 +332,7 @@ public class investidor_window extends javax.swing.JFrame {
         this.dispose();
         DepositarReais_window depositarWindow = new DepositarReais_window(investidor);
         depositarWindow.setVisible(true);
+        depositarWindow.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnDepositarActionPerformed
 
     private void btnComprarCryptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarCryptoActionPerformed
@@ -341,6 +350,14 @@ public class investidor_window extends javax.swing.JFrame {
         venderCryptoWindow.setVisible(true);
         venderCryptoWindow.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVenderCryptoActionPerformed
+
+    private void btnConsultarExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarExtratoActionPerformed
+        // TODO add your handling code here:
+        Extrato_window extratoWindow = new Extrato_window(investidor);
+        extratoWindow.setVisible(true);
+        extratoWindow.setLocationRelativeTo(null);
+
+    }//GEN-LAST:event_btnConsultarExtratoActionPerformed
 
     /**
      * @param args the command line arguments

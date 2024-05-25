@@ -18,6 +18,7 @@ public class Erbchange {
     public static void main(String[] args) {
         login_window lw = new login_window();
         lw.setVisible(true);
+        lw.setLocationRelativeTo(null);
     }
     
 }

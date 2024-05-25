@@ -2,12 +2,15 @@ package controller;
 
 import DAO.CarteiraDAO;
 import DAO.Conexao;
+import DAO.TransacoesDAO;
 import model.Investidor;
 import model.Real;
 import view.DepositarReais_window;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import model.Transacao;
 
 public class Controller_MovimentoReais {
     private Investidor investidor;
@@ -34,6 +37,22 @@ public class Controller_MovimentoReais {
             CarteiraDAO dao = new CarteiraDAO(conn);
             int idCarteira = dao.buscarIdCarteiraPorCPF(investidor.getCpf());
             dao.atualizarSaldoReal(idCarteira, real.consultarSaldo());
+            
+            Transacao transacao = new Transacao();
+            transacao.setCpf(investidor.getCpf());
+            transacao.setDataHora(LocalDateTime.now());
+            transacao.setTipo("Depósito");
+            transacao.setValorTotal(valor);
+            transacao.setMoeda("real");
+            transacao.setCotacao(1.0);
+            transacao.setTaxa(0.0);
+            transacao.setSaldoReal(real.consultarSaldo());
+            transacao.setSaldoBitcoin(investidor.getCarteira().getMoedas().get("bitcoin").getQuantidade_carteira());
+            transacao.setSaldoEthereum(investidor.getCarteira().getMoedas().get("ethereum").getQuantidade_carteira());
+            transacao.setSaldoRipple(investidor.getCarteira().getMoedas().get("ripple").getQuantidade_carteira());
+
+            TransacoesDAO transacaoDAO = new TransacoesDAO(conn);
+            transacaoDAO.registrarTransacao(transacao);
 
             // Atualizar a exibição do saldo após o depósito
             view.setAreaSaldoPosDeposito("Novo saldo em Reais: R$ " + String.format("%.2f", real.consultarSaldo()));

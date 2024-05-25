@@ -4,11 +4,9 @@
  */
 package view;
 
-import com.sun.jdi.connect.spi.Connection;
-import controller.Controller_MovimentoReais;
+import controller.Controller_Extrato;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -18,31 +16,55 @@ import model.Investidor;
  *
  * @author rgara
  */
-public class DepositarReais_window extends javax.swing.JFrame {
+public class Extrato_window extends javax.swing.JFrame {
 
     private Investidor investidor;
-    private Controller_MovimentoReais controller;
+    private Controller_Extrato controller;
+
+    public Extrato_window(Investidor investidor) {
+        initComponents();
+        this.investidor = investidor;
+        this.controller = new Controller_Extrato(investidor, this);
+    }
+
+    public Investidor getInvestidor() {
+        return investidor;
+    }
+
+    public void setInvestidor(Investidor investidor) {
+        this.investidor = investidor;
+    }
+
+    public Controller_Extrato getController() {
+        return controller;
+    }
+
+    public void setController(Controller_Extrato controller) {
+        this.controller = controller;
+    }
+
+    public JTextArea getAreaExtrato() {
+        return AreaExtrato;
+    }
     
-    public DepositarReais_window(Investidor investidor) {
-    initComponents();
-    this.investidor = investidor;
-    this.controller = new Controller_MovimentoReais(investidor, this);
-}
-
-    public JTextArea getAreaSaldoPosDeposito() {
-        return AreaSaldoPosDeposito;
+    public void setAreaExtrato(String texto) {
+        AreaExtrato.setText(texto);
     }
 
-    public void setAreaSaldoPosDeposito(String texto) {
-        AreaSaldoPosDeposito.setText(texto);
+    public JTextField getInsertSenhaExtrato() {
+        return InsertSenhaExtrato;
     }
 
-    public JTextField getInsertValorDeposito() {
-        return InsertValorDeposito;
+    public void setInsertSenhaExtrato(JTextField InsertSenhaExtrato) {
+        this.InsertSenhaExtrato = InsertSenhaExtrato;
     }
 
-    public void setInsertValorDeposito(JTextField InsertValorDeposito) {
-        this.InsertValorDeposito = InsertValorDeposito;
+    public JButton getBtnExtrato() {
+        return btnExtrato;
+    }
+
+    public void setBtnExtrato(JButton btnExtrato) {
+        this.btnExtrato = btnExtrato;
     }
 
     public JButton getBtnVoltar() {
@@ -51,14 +73,6 @@ public class DepositarReais_window extends javax.swing.JFrame {
 
     public void setBtnVoltar(JButton btnVoltar) {
         this.btnVoltar = btnVoltar;
-    }
-
-    public JButton getBtndepositar() {
-        return btndepositar;
-    }
-
-    public void setBtndepositar(JButton btndepositar) {
-        this.btndepositar = btndepositar;
     }
 
     public JScrollPane getjScrollPane1() {
@@ -77,12 +91,12 @@ public class DepositarReais_window extends javax.swing.JFrame {
         this.lblIntroducaoDepositar = lblIntroducaoDepositar;
     }
 
-    public JLabel getLblValor() {
-        return lblValor;
+    public JLabel getLblSenha() {
+        return lblSenha;
     }
 
-    public void setLblValor(JLabel lblValor) {
-        this.lblValor = lblValor;
+    public void setLblSenha(JLabel lblSenha) {
+        this.lblSenha = lblSenha;
     }
 
     
@@ -98,11 +112,11 @@ public class DepositarReais_window extends javax.swing.JFrame {
 
         btnVoltar = new javax.swing.JButton();
         lblIntroducaoDepositar = new javax.swing.JLabel();
-        lblValor = new javax.swing.JLabel();
-        InsertValorDeposito = new javax.swing.JTextField();
-        btndepositar = new javax.swing.JButton();
+        lblSenha = new javax.swing.JLabel();
+        InsertSenhaExtrato = new javax.swing.JTextField();
+        btnExtrato = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        AreaSaldoPosDeposito = new javax.swing.JTextArea();
+        AreaExtrato = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,25 +131,25 @@ public class DepositarReais_window extends javax.swing.JFrame {
         });
 
         lblIntroducaoDepositar.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        lblIntroducaoDepositar.setText("Insira o valor que deseja depositar");
+        lblIntroducaoDepositar.setText("Insira a sua senha para ver o seu extrato");
 
-        lblValor.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
-        lblValor.setText("R$:");
+        lblSenha.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        lblSenha.setText("Senha:");
 
-        InsertValorDeposito.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        InsertSenhaExtrato.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
-        btndepositar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        btndepositar.setText("Depositar");
-        btndepositar.addActionListener(new java.awt.event.ActionListener() {
+        btnExtrato.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnExtrato.setText("Ver Extrato");
+        btnExtrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndepositarActionPerformed(evt);
+                btnExtratoActionPerformed(evt);
             }
         });
 
-        AreaSaldoPosDeposito.setColumns(20);
-        AreaSaldoPosDeposito.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        AreaSaldoPosDeposito.setRows(5);
-        jScrollPane1.setViewportView(AreaSaldoPosDeposito);
+        AreaExtrato.setColumns(20);
+        AreaExtrato.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        AreaExtrato.setRows(5);
+        jScrollPane1.setViewportView(AreaExtrato);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,26 +158,29 @@ public class DepositarReais_window extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnVoltar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(lblIntroducaoDepositar)))
-                        .addGap(0, 31, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(btnVoltar)
+                        .addGap(0, 632, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(lblValor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btndepositar)
-                    .addComponent(InsertValorDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblIntroducaoDepositar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnExtrato)
+                                .addGap(173, 173, 173))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblSenha)
+                                .addGap(18, 18, 18)
+                                .addComponent(InsertSenhaExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(80, 80, 80)))))
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,40 +191,30 @@ public class DepositarReais_window extends javax.swing.JFrame {
                 .addComponent(lblIntroducaoDepositar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblValor)
-                    .addComponent(InsertValorDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblSenha)
+                    .addComponent(InsertSenhaExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btndepositar)
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                .addComponent(btnExtrato)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btndepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndepositarActionPerformed
-        // TODO add your handling code here:
-        String valorTexto = InsertValorDeposito.getText().trim();
-        if (valorTexto.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, insira um valor para depósito.", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        try {
-            controller.realizarDeposito(valorTexto);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Erro ao realizar o depósito: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btndepositarActionPerformed
-
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
         this.dispose();
         investidor_window investidorWindow = new investidor_window(investidor);
-        investidorWindow.setVisible(true); 
+        investidorWindow.setVisible(true);
         investidorWindow.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtratoActionPerformed
+        // TODO add your handling code here:
+        controller.verExtrato();
+    }//GEN-LAST:event_btnExtratoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,31 +233,31 @@ public class DepositarReais_window extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(DepositarReais_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Extrato_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(DepositarReais_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Extrato_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(DepositarReais_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Extrato_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(DepositarReais_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(Extrato_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new DepositarReais_window().setVisible(true);
+//                new Extrato_window().setVisible(true);
 //            }
 //        });
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea AreaSaldoPosDeposito;
-    private javax.swing.JTextField InsertValorDeposito;
+    private javax.swing.JTextArea AreaExtrato;
+    private javax.swing.JTextField InsertSenhaExtrato;
+    private javax.swing.JButton btnExtrato;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JButton btndepositar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIntroducaoDepositar;
-    private javax.swing.JLabel lblValor;
+    private javax.swing.JLabel lblSenha;
     // End of variables declaration//GEN-END:variables
 }

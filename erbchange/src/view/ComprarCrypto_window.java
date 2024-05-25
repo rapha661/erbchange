@@ -365,6 +365,7 @@ public class ComprarCrypto_window extends javax.swing.JFrame {
         this.dispose();
         investidor_window investidorWindow = new investidor_window(investidor);
         investidorWindow.setVisible(true);
+        investidorWindow.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnVerCotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCotacaoActionPerformed

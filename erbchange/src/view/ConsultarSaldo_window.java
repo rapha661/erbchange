@@ -204,6 +204,7 @@ public class ConsultarSaldo_window extends javax.swing.JFrame {
         this.dispose();
         investidor_window investidorWindow = new investidor_window(investidor);
         investidorWindow.setVisible(true); 
+        investidorWindow.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVoltarMenuActionPerformed
 
     private void InsertSenhaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertSenhaConsultaActionPerformed

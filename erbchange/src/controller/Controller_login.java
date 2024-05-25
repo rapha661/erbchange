@@ -49,6 +49,7 @@ public class Controller_login {
 
                 investidor_window viewUsuario = new investidor_window(investidorCompleto);
                 viewUsuario.setVisible(true);
+                viewUsuario.setLocationRelativeTo(null);
                 view.dispose(); 
             } else {
                 JOptionPane.showMessageDialog(view, "Erro no login", "Erro", JOptionPane.ERROR_MESSAGE);
