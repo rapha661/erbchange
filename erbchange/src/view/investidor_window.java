@@ -169,6 +169,11 @@ public class investidor_window extends javax.swing.JFrame {
 
         btnDepositar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnDepositar.setText("Depositar");
+        btnDepositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepositarActionPerformed(evt);
+            }
+        });
 
         btnSacar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnSacar.setText("Sacar");
@@ -299,6 +304,13 @@ public class investidor_window extends javax.swing.JFrame {
     private void btnatualizarCotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatualizarCotacaoActionPerformed
         control.atualizarCotacoes();
     }//GEN-LAST:event_btnatualizarCotacaoActionPerformed
+
+    private void btnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        DepositarReais_window depositarWindow = new DepositarReais_window(investidor);
+        depositarWindow.setVisible(true);
+    }//GEN-LAST:event_btnDepositarActionPerformed
 
     /**
      * @param args the command line arguments

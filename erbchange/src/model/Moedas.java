@@ -56,17 +56,5 @@ public abstract class Moedas {
         this.quantidade_carteira = quantidade_carteira;
     }
     
-    public void depositar(double quantidade) {
-        quantidade_carteira += quantidade;
-    }
-
-    public void sacar(double quantidade) {
-        if (quantidade <= quantidade_carteira) {
-            quantidade_carteira -= quantidade;
-        } else {
-            System.out.println("Saldo insuficiente!");
-        }
-    }
-    
     public abstract double novaCotacao();
 }

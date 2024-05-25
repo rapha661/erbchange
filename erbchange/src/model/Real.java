@@ -13,5 +13,14 @@ public class Real extends Moedas {
     public double novaCotacao() {
         return getCotacao();
     }
+    
+    public void depositar(double quantidade) {
+        double novoSaldo = this.getQuantidade_carteira() + quantidade;
+        this.setQuantidade_carteira(novoSaldo);
+    }
+
+    public double consultarSaldo() {
+        return this.getQuantidade_carteira();
+    }
 }
 

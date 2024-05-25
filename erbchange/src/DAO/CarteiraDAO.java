@@ -32,4 +32,27 @@ public class CarteiraDAO {
         }
         return carteira_investidor;
     }
+    
+    public int buscarIdCarteiraPorCPF(String cpf) throws SQLException {
+        String sql = "SELECT carteira FROM investidor WHERE cpf = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, cpf);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("carteira");
+                } else {
+                    throw new SQLException("Carteira não encontrada para o CPF fornecido.");
+                }
+            }
+        }
+    }
+
+    public void atualizarSaldoReal(int idCarteira, double novoSaldo) throws SQLException {
+        String sql = "UPDATE carteira SET real = ? WHERE id_carteira = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setDouble(1, novoSaldo);
+            stmt.setInt(2, idCarteira);
+            stmt.executeUpdate();
+        }
+    }
 }

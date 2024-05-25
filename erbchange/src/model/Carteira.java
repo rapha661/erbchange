@@ -12,7 +12,7 @@ public class Carteira {
         this.moedas.put("bitcoin", new Bitcoin());
         this.moedas.put("ethereum", new Ethereum());
         this.moedas.put("ripple", new Ripple());
-    }
+    } 
 
     public Map<String, Moedas> getMoedas() {
         return moedas;
