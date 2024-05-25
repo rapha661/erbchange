@@ -18,6 +18,11 @@ public class Real extends Moedas {
         double novoSaldo = this.getQuantidade_carteira() + quantidade;
         this.setQuantidade_carteira(novoSaldo);
     }
+    
+    public void sacar(double quantidade) {
+        double novoSaldo = this.getQuantidade_carteira() - quantidade;
+        this.setQuantidade_carteira(novoSaldo);
+    }
 
     public double consultarSaldo() {
         return this.getQuantidade_carteira();

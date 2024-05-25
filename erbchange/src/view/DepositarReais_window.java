@@ -33,9 +33,9 @@ public class DepositarReais_window extends javax.swing.JFrame {
         return AreaSaldoPosDeposito;
     }
 
-   public void setAreaSaldoPosDeposito(String texto) {
-    AreaSaldoPosDeposito.setText(texto);
-}
+    public void setAreaSaldoPosDeposito(String texto) {
+        AreaSaldoPosDeposito.setText(texto);
+    }
 
     public JTextField getInsertValorDeposito() {
         return InsertValorDeposito;
@@ -124,6 +124,7 @@ public class DepositarReais_window extends javax.swing.JFrame {
 
         InsertValorDeposito.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
+        btndepositar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btndepositar.setText("Depositar");
         btndepositar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +179,7 @@ public class DepositarReais_window extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btndepositar)
                 .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

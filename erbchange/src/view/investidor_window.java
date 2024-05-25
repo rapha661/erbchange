@@ -283,6 +283,9 @@ public class investidor_window extends javax.swing.JFrame {
 
     private void btnSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSacarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        SacarReais_window sacarWindow = new SacarReais_window(investidor);
+        sacarWindow.setVisible(true);
     }//GEN-LAST:event_btnSacarActionPerformed
 
     private void btnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsairActionPerformed
