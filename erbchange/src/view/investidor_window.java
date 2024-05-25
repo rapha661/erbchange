@@ -185,6 +185,11 @@ public class investidor_window extends javax.swing.JFrame {
 
         btnComprarCrypto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnComprarCrypto.setText("Comprar Crypto");
+        btnComprarCrypto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarCryptoActionPerformed(evt);
+            }
+        });
 
         btnVenderCrypto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnVenderCrypto.setText("Vender Crypto");
@@ -314,6 +319,14 @@ public class investidor_window extends javax.swing.JFrame {
         DepositarReais_window depositarWindow = new DepositarReais_window(investidor);
         depositarWindow.setVisible(true);
     }//GEN-LAST:event_btnDepositarActionPerformed
+
+    private void btnComprarCryptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarCryptoActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        ComprarCrypto_window comprarCryptoWindow = new ComprarCrypto_window(investidor); // Supondo que você tem uma variável investidor disponível
+        comprarCryptoWindow.setVisible(true);
+        comprarCryptoWindow.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnComprarCryptoActionPerformed
 
     /**
      * @param args the command line arguments

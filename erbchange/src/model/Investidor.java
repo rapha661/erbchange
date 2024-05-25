@@ -17,7 +17,7 @@ public class Investidor {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
-        this.carteira = new Carteira();
+        this.carteira = carteira;;
     }
 
     public String getNome() {

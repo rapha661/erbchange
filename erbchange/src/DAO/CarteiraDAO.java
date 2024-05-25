@@ -55,4 +55,16 @@ public class CarteiraDAO {
             stmt.executeUpdate();
         }
     }
+    
+    public void atualizarSaldoMoeda(int idCarteira, String nomeMoeda, double novoSaldo) throws SQLException {
+        String sql = "UPDATE carteira SET " + nomeMoeda + " = ? WHERE id_carteira = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setDouble(1, novoSaldo);
+            stmt.setInt(2, idCarteira);
+            int affectedRows = stmt.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Atualização do saldo da moeda falhou, carteira não encontrada.");
+            }
+        }
+    }
 }
