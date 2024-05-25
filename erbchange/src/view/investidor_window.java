@@ -193,6 +193,11 @@ public class investidor_window extends javax.swing.JFrame {
 
         btnVenderCrypto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnVenderCrypto.setText("Vender Crypto");
+        btnVenderCrypto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVenderCryptoActionPerformed(evt);
+            }
+        });
 
         ConsultaCotacao.setColumns(20);
         ConsultaCotacao.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -323,10 +328,18 @@ public class investidor_window extends javax.swing.JFrame {
     private void btnComprarCryptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarCryptoActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        ComprarCrypto_window comprarCryptoWindow = new ComprarCrypto_window(investidor); // Supondo que você tem uma variável investidor disponível
+        ComprarCrypto_window comprarCryptoWindow = new ComprarCrypto_window(investidor); 
         comprarCryptoWindow.setVisible(true);
         comprarCryptoWindow.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnComprarCryptoActionPerformed
+
+    private void btnVenderCryptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderCryptoActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        VenderCrypto_window venderCryptoWindow = new VenderCrypto_window(investidor); 
+        venderCryptoWindow.setVisible(true);
+        venderCryptoWindow.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnVenderCryptoActionPerformed
 
     /**
      * @param args the command line arguments

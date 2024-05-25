@@ -369,7 +369,7 @@ public class ComprarCrypto_window extends javax.swing.JFrame {
 
     private void btnVerCotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCotacaoActionPerformed
         // TODO add your handling code here:
-        controller.atualizarCotacoes();
+        controller.Cotacoes();
     }//GEN-LAST:event_btnVerCotacaoActionPerformed
 
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed

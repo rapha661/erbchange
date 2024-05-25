@@ -58,23 +58,21 @@ public class Controller_ComprarCrypto {
         }
     }
     
-    public void atualizarCotacoes() {
-    try {
-        
-        Moedas bitcoin = (Moedas) investidor.getCarteira().getMoedas().get("bitcoin");
-        Moedas ethereum = (Moedas) investidor.getCarteira().getMoedas().get("ethereum");
-        Moedas ripple = (Moedas) investidor.getCarteira().getMoedas().get("ripple");
-        
-        StringBuilder cotacoesTexto = new StringBuilder();
-        cotacoesTexto.append("Bitcoin: R$ ").append(String.format("%.2f", bitcoin.getCotacao())).append("\n");
-        cotacoesTexto.append("Ethereum: R$ ").append(String.format("%.2f", ethereum.getCotacao())).append("\n");
-        cotacoesTexto.append("Ripple: R$ ").append(String.format("%.2f", ripple.getCotacao())).append("\n");
-        
-        view.getAreaConsultarCotacaoCompra().setText(cotacoesTexto.toString());
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(view, "Erro ao atualizar cotações: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    public void Cotacoes() {
+        try {
+
+            Moedas bitcoin = (Moedas) investidor.getCarteira().getMoedas().get("bitcoin");
+            Moedas ethereum = (Moedas) investidor.getCarteira().getMoedas().get("ethereum");
+            Moedas ripple = (Moedas) investidor.getCarteira().getMoedas().get("ripple");
+
+            StringBuilder cotacoesTexto = new StringBuilder();
+            cotacoesTexto.append("Bitcoin: R$ ").append(String.format("%.2f", bitcoin.getCotacao())).append("\n");
+            cotacoesTexto.append("Ethereum: R$ ").append(String.format("%.2f", ethereum.getCotacao())).append("\n");
+            cotacoesTexto.append("Ripple: R$ ").append(String.format("%.2f", ripple.getCotacao())).append("\n");
+
+            view.getAreaConsultarCotacaoCompra().setText(cotacoesTexto.toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(view, "Erro ao atualizar cotações: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
-}
-
-
 }
