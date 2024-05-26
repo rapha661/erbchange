@@ -16,3 +16,11 @@ Este projeto simula uma exchange de criptomoedas, desenvolvido como parte de uma
 ### Pré-requisitos
 - Java JDK 11 ou superior
 - PostgreSQL 12 ou superior
+
+<h1 align="center">Autor:</h1> <br>
+
+<table style="display:flex;" align="center">
+    <td align="center">
+        Raphael Garavati Erbert <br>
+    </td>
+</table>
