@@ -10,7 +10,9 @@ import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import model.Carteira;
 import model.Transacao;
+
 
 public class Controller_MovimentoReais {
     private Investidor investidor;
@@ -29,32 +31,38 @@ public class Controller_MovimentoReais {
                 return;
             }
 
-            // Acesso ao objeto Real dentro da carteira do investidor e depósito do valor
+           
             Real real = (Real) investidor.getCarteira().getMoedas().get("real");
-            real.depositar(valor);
+           real.depositar(valor);
 
-            // Atualiza o saldo na base de dados
+          
             CarteiraDAO dao = new CarteiraDAO(conn);
             int idCarteira = dao.buscarIdCarteiraPorCPF(investidor.getCpf());
             dao.atualizarSaldoReal(idCarteira, real.consultarSaldo());
             
-            Transacao transacao = new Transacao();
-            transacao.setCpf(investidor.getCpf());
-            transacao.setDataHora(LocalDateTime.now());
-            transacao.setTipo("Depósito");
-            transacao.setValorTotal(valor);
-            transacao.setMoeda("real");
-            transacao.setCotacao(1.0);
-            transacao.setTaxa(0.0);
-            transacao.setSaldoReal(real.consultarSaldo());
-            transacao.setSaldoBitcoin(investidor.getCarteira().getMoedas().get("bitcoin").getQuantidade_carteira());
-            transacao.setSaldoEthereum(investidor.getCarteira().getMoedas().get("ethereum").getQuantidade_carteira());
-            transacao.setSaldoRipple(investidor.getCarteira().getMoedas().get("ripple").getQuantidade_carteira());
+            Carteira carteira = investidor.getCarteira();
+            double saldoBitcoin = carteira.getMoedas().get("bitcoin").getQuantidade_carteira();
+            double saldoEthereum = carteira.getMoedas().get("ethereum").getQuantidade_carteira();
+            double saldoRipple = carteira.getMoedas().get("ripple").getQuantidade_carteira();
+            
+            Transacao transacao = new Transacao(
+            investidor.getCpf(),
+            LocalDateTime.now(),
+            "Depósito",
+            valor,
+            "Real",
+            0.0, 
+            0.0,  
+            real.consultarSaldo(),
+            saldoBitcoin,  
+            saldoEthereum,    
+            saldoRipple    
+        );
 
-            TransacoesDAO transacaoDAO = new TransacoesDAO(conn);
-            transacaoDAO.registrarTransacao(transacao);
+        TransacoesDAO transacoesDAO = new TransacoesDAO(conn);
+        transacoesDAO.inserirTransacao(transacao);
 
-            // Atualizar a exibição do saldo após o depósito
+         
             view.setAreaSaldoPosDeposito("Novo saldo em Reais: R$ " + String.format("%.2f", real.consultarSaldo()));
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(view, "Por favor, insira um valor numérico válido.", "Erro de Formato", JOptionPane.ERROR_MESSAGE);

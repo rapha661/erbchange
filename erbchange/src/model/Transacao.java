@@ -3,8 +3,6 @@ package model;
 import java.time.LocalDateTime;
 
 public class Transacao {
-    private int idTransacao;
-    private String cpf;
     private LocalDateTime dataHora;
     private String tipo;
     private double valorTotal;
@@ -15,23 +13,31 @@ public class Transacao {
     private double saldoBitcoin;
     private double saldoEthereum;
     private double saldoRipple;
+    private final String cpf;
 
-    public int getIdTransacao() {
-        return idTransacao;
+    // Construtor completo
+    public Transacao(String cpf,LocalDateTime dataHora, String tipo, double valorTotal, String moeda, 
+                     double cotacao, double taxa, double saldoReal, double saldoBitcoin, 
+                     double saldoEthereum, double saldoRipple) {
+        this.cpf = cpf;
+        this.dataHora = dataHora;
+        this.tipo = tipo;
+        this.valorTotal = valorTotal;
+        this.moeda = moeda;
+        this.cotacao = cotacao;
+        this.taxa = taxa;
+        this.saldoReal = saldoReal;
+        this.saldoBitcoin = saldoBitcoin;
+        this.saldoEthereum = saldoEthereum;
+        this.saldoRipple = saldoRipple;
     }
 
-    public void setIdTransacao(int idTransacao) {
-        this.idTransacao = idTransacao;
-    }
+    // Getters e Setters
 
     public String getCpf() {
         return cpf;
     }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
+    
     public LocalDateTime getDataHora() {
         return dataHora;
     }
@@ -111,6 +117,6 @@ public class Transacao {
     public void setSaldoRipple(double saldoRipple) {
         this.saldoRipple = saldoRipple;
     }
-
+    
     
 }

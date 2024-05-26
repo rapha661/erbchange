@@ -386,7 +386,6 @@ public class ComprarCrypto_window extends javax.swing.JFrame {
 
         try {
             double valorEmReais = Double.parseDouble(InsertReaisCompra.getText());
-            // Método no controller para realizar a compra da criptomoeda
             controller.comprarCrypto(moedaEscolhida, valorEmReais);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Por favor, insira um valor numérico válido.", "Erro de Formato", JOptionPane.ERROR_MESSAGE);

@@ -7,10 +7,7 @@ import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLException;
 import model.Real;
-import model.Bitcoin;
-import model.Ethereum;
 import model.Moedas;
-import model.Ripple;
 import view.VenderCrypto_window;
 
 public class Controller_VendaCrypto {

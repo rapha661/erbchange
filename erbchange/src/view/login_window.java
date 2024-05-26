@@ -215,6 +215,7 @@ public class login_window extends javax.swing.JFrame {
         // TODO add your handling code here:
         Cadastro_window cw = new Cadastro_window();
         cw.setVisible(true);
+        cw.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_MenuItemCriarActionPerformed
 

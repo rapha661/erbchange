@@ -1,12 +1,8 @@
 package controller;
 
-import DAO.CarteiraDAO;
-import DAO.Conexao;
 import model.Carteira;
 import model.Investidor;
 import view.ConsultarSaldo_window;
-import java.sql.Connection;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Controller_ConsultarSaldo {
@@ -24,7 +20,7 @@ public class Controller_ConsultarSaldo {
             return;
         }
 
-        Carteira carteira = investidor.getCarteira();  // Assumindo que o Investidor já possui uma Carteira instanciada
+        Carteira carteira = investidor.getCarteira();
         if (carteira != null) {
             String saldo = "Nome: " + investidor.getNome() + "\n" +
                            "CPF: " + investidor.getCpf() + "\n\n" +

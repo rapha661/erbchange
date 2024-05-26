@@ -9,7 +9,6 @@ import view.ComprarCrypto_window;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Map;
 
 public class Controller_ComprarCrypto {
     private Investidor investidor;
@@ -37,17 +36,10 @@ public class Controller_ComprarCrypto {
                 JOptionPane.showMessageDialog(view, "Saldo insuficiente para realizar a compra.", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
-            // Deduz o valor em reais do saldo atual
             real.setQuantidade_carteira(saldoAtual - valorEmReais);
-
-            // Adiciona a quantidade comprada à carteira da moeda escolhida
             moeda.setQuantidade_carteira(moeda.getQuantidade_carteira() + quantidadeComprada);
-
-            // Atualiza o saldo na base de dados
             dao.atualizarSaldoReal(idCarteira, real.getQuantidade_carteira());
             dao.atualizarSaldoMoeda(idCarteira, tipoMoeda, moeda.getQuantidade_carteira());
-
             JOptionPane.showMessageDialog(view, "Compra realizada com sucesso! Novo saldo: " + real.getQuantidade_carteira(), "Compra Concluída", JOptionPane.INFORMATION_MESSAGE);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(view, "Por favor, insira um valor numérico válido.", "Erro de Formato", JOptionPane.ERROR_MESSAGE);
