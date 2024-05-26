@@ -353,6 +353,7 @@ public class investidor_window extends javax.swing.JFrame {
 
     private void btnConsultarExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarExtratoActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         Extrato_window extratoWindow = new Extrato_window(investidor);
         extratoWindow.setVisible(true);
         extratoWindow.setLocationRelativeTo(null);

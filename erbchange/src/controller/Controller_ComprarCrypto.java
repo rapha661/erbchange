@@ -2,6 +2,7 @@ package controller;
 
 import DAO.CarteiraDAO;
 import DAO.Conexao;
+import DAO.TransacoesDAO;
 import model.Investidor;
 import model.Moedas;
 import model.Real;
@@ -9,6 +10,9 @@ import view.ComprarCrypto_window;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import model.Carteira;
+import model.Transacao;
 
 public class Controller_ComprarCrypto {
     private Investidor investidor;
@@ -32,6 +36,24 @@ public class Controller_ComprarCrypto {
             Real real = (Real) investidor.getCarteira().getMoedas().get("real");
             double saldoAtual = real.getQuantidade_carteira();
             
+            
+            Carteira carteira = investidor.getCarteira();
+            TransacoesDAO transacoesDAO = new TransacoesDAO(conn);
+            Transacao transacao = new Transacao(
+                investidor.getCpf(),
+                LocalDateTime.now(),
+                "Compra",
+                valorEmReais,
+                tipoMoeda,
+                cotacaoAtual,
+                taxaCompra,
+                real.getQuantidade_carteira(),
+                carteira.getMoedas().get("bitcoin").getQuantidade_carteira(),
+                carteira.getMoedas().get("ethereum").getQuantidade_carteira(),
+                carteira.getMoedas().get("ripple").getQuantidade_carteira()
+            );
+            transacoesDAO.inserirTransacao(transacao);
+
             if (saldoAtual < valorEmReais) {
                 JOptionPane.showMessageDialog(view, "Saldo insuficiente para realizar a compra.", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;

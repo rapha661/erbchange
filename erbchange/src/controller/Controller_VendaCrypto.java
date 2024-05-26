@@ -2,12 +2,15 @@ package controller;
 
 import DAO.CarteiraDAO;
 import DAO.Conexao;
+import DAO.TransacoesDAO;
 import model.Investidor;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import model.Real;
 import model.Moedas;
+import model.Transacao;
 import view.VenderCrypto_window;
 
 public class Controller_VendaCrypto {
@@ -55,6 +58,22 @@ public class Controller_VendaCrypto {
             int idCarteira = dao.buscarIdCarteiraPorCPF(investidor.getCpf());
             dao.atualizarSaldoReal(idCarteira, real.consultarSaldo());
             dao.atualizarSaldoMoeda(idCarteira, moeda, investidor.getCarteira().getMoedas().get(moeda).getQuantidade_carteira());
+            
+            TransacoesDAO transacoesDAO = new TransacoesDAO(conn);
+            Transacao transacao = new Transacao(
+                investidor.getCpf(),
+                LocalDateTime.now(),
+                "Venda de " + moeda,
+                valorReais * 1,
+                moeda,
+                investidor.getCarteira().getMoedas().get(moeda).getCotacao(),
+                valorCrypto,
+                real.consultarSaldo(),
+                investidor.getCarteira().getMoedas().get("bitcoin").getQuantidade_carteira(),
+                investidor.getCarteira().getMoedas().get("ethereum").getQuantidade_carteira(),
+                investidor.getCarteira().getMoedas().get("ripple").getQuantidade_carteira()
+            );
+            transacoesDAO.inserirTransacao(transacao);
 
             JOptionPane.showMessageDialog(view, "Venda realizada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {

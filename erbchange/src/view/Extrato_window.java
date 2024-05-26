@@ -213,7 +213,12 @@ public class Extrato_window extends javax.swing.JFrame {
 
     private void btnExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtratoActionPerformed
         // TODO add your handling code here:
-        controller.buscarExtrato();
+        String senha = InsertSenhaExtrato.getText();
+        if (senha.length() == 6 && senha.matches("\\d+")) {
+            controller.buscarExtrato(senha);;
+        } else {
+            JOptionPane.showMessageDialog(this, "A senha deve conter exatamente 6 dígitos numéricos.", "Erro de validação", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnExtratoActionPerformed
 
     /**

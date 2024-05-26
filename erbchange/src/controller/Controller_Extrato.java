@@ -19,7 +19,12 @@ public class Controller_Extrato {
         this.view = view;
     }
 
-    public void buscarExtrato() {
+    public void buscarExtrato(String senha) {
+        if (!senha.equals(investidor.getSenha())) {
+            JOptionPane.showMessageDialog(view, "Senha incorreta!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         try (Connection conn = new Conexao().getConnection()) {
             TransacoesDAO dao = new TransacoesDAO(conn);
             List<Transacao> transacoes = dao.consultarExtrato(investidor.getCpf());
@@ -32,11 +37,11 @@ public class Controller_Extrato {
 
     private String formatarExtrato(List<Transacao> transacoes) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%-20s %-15s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s\n",
+        sb.append(String.format("%-30s %-25s %-20s %-15s %-20s %-15s %-20s %-20s %-20s %-20s\n",
                                 "Data/Hora", "Tipo", "Valor Total", "Moeda", "Cotação", "Taxa",
-                                "Saldo Real        ", "BTC", "ETH", "XRP"));
+                                "Saldo Real", "BTC", "ETH", "XRP"));
         for (Transacao transacao : transacoes) {
-            sb.append(String.format("%-20s %-15s %-10.2f %-10s %-10.8f %-10.2f %-10.2f %-10.8f %-10.8f %-10.8f\n",
+            sb.append(String.format("%-30s %-25s %-20.2f %-15s %-20.8f %-15.2f %-20.2f %-20.8f %-20.8f %-20.8f\n",
                                     transacao.getDataHora().toString(),
                                     transacao.getTipo(),
                                     transacao.getValorTotal(),
@@ -50,4 +55,8 @@ public class Controller_Extrato {
         }
         return sb.toString();
     }
+
+
 }
+
+

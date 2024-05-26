@@ -56,7 +56,7 @@ public class Controller_SacarReais {
             investidor.getCpf(),
             LocalDateTime.now(),
             "Saque",
-            valor * -1, // Valor negativo porque é um saque
+            valor * -1,
             "Real",
             0, 
             0, 
