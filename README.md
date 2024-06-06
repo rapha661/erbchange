@@ -12,6 +12,9 @@ Este projeto simula uma exchange de criptomoedas, desenvolvido como parte de uma
 - **Consulta de Extrato:** Histórico detalhado de todas as operações financeiras, mostrando datas, valores e taxas.
 - **Atualização de Cotações:** Sistema simulado para atualização das cotações das criptomoedas.
 
+## Funcionalidades
+- Link para vídeo sobre o projeto: https://youtu.be/IX51_isa_5A?si=UgQ312ZbcNSv-BzI
+
 ## Instalação e Execução
 ### Pré-requisitos
 - Java JDK 11 ou superior
